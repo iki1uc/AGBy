@@ -1,1 +1,7 @@
-
+export const SUS_save = function(memory) {
+  return {
+    mode: "neutral",
+    saved: memory,
+    bind: false
+  };
+};
