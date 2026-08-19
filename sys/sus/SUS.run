@@ -1,1 +1,6 @@
+return {
+    respo: SUS.respo(impulse),
+    vector: SUS.vector(impulse),
+    memory: SUS.memory(impulse)
+}
 
