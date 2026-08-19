@@ -1,8 +1,0 @@
-export const SUS_shiftVEC = function(state) {
-  return {
-    mode: "neutral",
-    vector: state,
-    bind: false
-  };
-};
-
