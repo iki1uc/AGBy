@@ -1,9 +1,0 @@
-VECTOR.modules.push("SUS");
-
-SUS.vector = function(state) {
-  return {
-    seen: state,
-    mode: "neutral",
-    bind: false
-  };
-};
