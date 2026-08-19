@@ -1,6 +1,0 @@
-// SUS.memory – neutraler Speicherblock
-export const SUS_memory = {
-  respo: null,
-  vector: null,
-  last: null
-};
