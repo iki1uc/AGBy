@@ -2,25 +2,31 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>FOGth – Canvas Engine</title>
+<title>FOGth – G Root Canvas Engine</title>
+
 <style>
   body {
-    background: #111;
+    background: #000;
     margin: 0;
     overflow: hidden;
+    font-family: monospace;
   }
+
   #fogth {
     width: 100vw;
     height: 100vh;
     display: block;
   }
+
   #info {
     position: absolute;
     top: 10px;
     left: 10px;
     color: #0f0;
-    font-family: monospace;
     font-size: 14px;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 10px;
+    border-radius: 4px;
   }
 </style>
 </head>
@@ -28,70 +34,66 @@
 <body>
 
 <canvas id="fogth"></canvas>
-<div id="info">FOGth Canvas Engine – g.js Root aktiv</div>
+<div id="info">FOGth Canvas Engine · G.root aktiv · ID = W</div>
 
+<!-- Root-System laden -->
 <script src="sys/root/g.js"></script>
 <script src="sys/root/root.visual.js"></script>
 
 <script>
+/* Canvas vorbereiten */
 const canvas = document.getElementById("fogth");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// G-Root laden
+/* G-Root laden */
 const GROOT = G.build();
 
-// Visual Root laden
+/* Visual Root laden */
 const VIS = rootVisual.visualize();
 
-// Tornado-Parameter
+/* Tornado-Parameter */
 let angle = 0;
 let speed = 0.02;
 
-// Zeichnen
+/* Zeichnen */
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Hintergrund
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Matrix-Kreise
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
 
+  /* Hintergrund */
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  /* 3×3 Matrix aus G.root */
+  const matrix = GROOT.matrix;
   const radius = 120;
 
-  const matrix = GROOT.matrix;
-
   for (let i = 0; i < 3; i++) {
-    const row = matrix[i];
-
     for (let j = 0; j < 3; j++) {
-      const cell = row[j];
 
-      const x = cx + Math.cos(angle + (i * 2 + j)) * radius * (i + 1);
-      const y = cy + Math.sin(angle + (i * 2 + j)) * radius * (j + 1);
+      const cell = matrix[i][j];
+      const label = Object.keys(cell)[0]; // A, B oder C
+
+      const x = cx + Math.cos(angle + (i + j)) * radius * (i + 1);
+      const y = cy + Math.sin(angle + (i + j)) * radius * (j + 1);
 
       ctx.beginPath();
-      ctx.arc(x, y, 20, 0, Math.PI * 2);
-
+      ctx.arc(x, y, 22, 0, Math.PI * 2);
       ctx.strokeStyle = "#0f0";
       ctx.lineWidth = 2;
       ctx.stroke();
 
       ctx.fillStyle = "#0f0";
-      ctx.fillText(
-        Object.keys(cell)[0], // A, B oder C
-        x - 5,
-        y + 5
-      );
+      ctx.fillText(label, x - 5, y + 5);
     }
   }
 
-  // Tornado-Spirale
+  /* Tornado-Spirale */
   ctx.beginPath();
   ctx.strokeStyle = "#0f0";
   ctx.lineWidth = 1;
@@ -99,7 +101,6 @@ function draw() {
   for (let t = 0; t < 200; t++) {
     const tx = cx + Math.cos(angle + t * 0.1) * (t * 1.5);
     const ty = cy + Math.sin(angle + t * 0.1) * (t * 1.5);
-
     ctx.lineTo(tx, ty);
   }
 
