@@ -1,1 +1,17 @@
+// SUS.link
+
+export const SUSlink = {
+
+    connect(respo, memory, vector, scan, shifted) {
+
+        return {
+            respo,
+            memory,
+            vector,
+            scan,
+            shifted,
+            status: "linked"
+        }
+    }
+}
 
