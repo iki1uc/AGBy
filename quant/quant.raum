@@ -1,1 +1,9 @@
+// quant.raum – physischer Raumplatzhalter
+
+export const quant_raum = {
+  MOD: "quant.raum",
+  TYPE: "phys-space",
+  VERSION: "1.0",
+  STATUS: "empty"
+};
 
