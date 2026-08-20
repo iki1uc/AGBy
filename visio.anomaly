@@ -1,0 +1,11 @@
+export const visioAnomaly = {
+  reason: [
+    "index.html hat keinen Renderer",
+    "root.visual wird nicht geladen",
+    "G.root (g.js) wird nicht eingebunden",
+    "ABCmatrix wird nicht ausgeführt",
+    "kein Canvas, kein Loop, keine Engine-Verbindung",
+    "veraltete HTML-Struktur"
+  ],
+  status: "visio-anomaly-detected"
+};
