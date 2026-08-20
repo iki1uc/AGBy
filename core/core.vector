@@ -1,0 +1,14 @@
+// core/core.vector
+
+export const coreVector = {
+
+    make(eye, scale, engine) {
+
+        return {
+            hx: (eye.pulse * scale.depth).toFixed(3),
+            by: (scale.load * engine.level).toFixed(3),
+            tz: (eye.depth * 1.4).toFixed(3),
+            status: "core-vector-ready"
+        }
+    }
+}
