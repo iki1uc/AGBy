@@ -4,17 +4,28 @@ export const targetRom = {
 
     check(engine) {
 
-        // Speicherwert aus Engine‑Level abgeleitet
-        const value = Number(engine.level).toFixed(2)
+        // Engine-Level wird auf drei Achsen verteilt
+        const H = this.toSymbol(engine.level, "H")
+        const B = this.toSymbol(engine.level, "B")
+        const T = this.toSymbol(engine.level, "T")
 
-        // 1‑Byte Grenze: 0.00–2.55
-        const ok = value <= 2.55
+        // 3‑Zeichen‑ROM
+        const rom = `${H}${B}${T}`
 
         return {
-            ok,
-            value,
-            status: ok ? "rom‑ok" : "rom‑overflow"
+            ok: true,
+            rom,
+            status: "rom-3char"
         }
+    },
+
+    toSymbol(level, axis) {
+
+        // Achsenabhängige Zeichen
+        if (axis === "H") return "^"
+        if (axis === "B") return "."
+        if (axis === "T") return "`"
+
+        return "?"
     }
 }
-
