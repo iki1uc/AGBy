@@ -1,15 +1,19 @@
-SUS.scanRESPO = function(respo) {
-  return {
-    mode: "neutral",
-    respo: {
-      OK: respo.OK,
-      NOK: respo.NOK,
-      FLOW: respo.FLOW,
-      BREAK: respo.BREAK,
-      ECHO: respo.ECHO,
-      VOID: respo.VOID,
-      ROOT: respo.ROOT
-    },
-    bind: false
-  };
-};
+// SUS.respo
+
+export const SUSrespo = {
+
+    read(engine) {
+
+        const level = Number(engine.level)
+
+        let color = "red"
+        if (level > 1.2) color = "yellow"
+        if (level > 1.8) color = "green"
+
+        return {
+            color,
+            level,
+            status: "respo-ready"
+        }
+    }
+}
