@@ -1,0 +1,15 @@
+// pover.in – Input-Durchlass
+
+export const pover_in = {
+  MOD: "pover.in",
+  TYPE: "input",
+  STATUS: "empty"
+};
+
+// pover.out – Output-Durchlass
+
+export const pover_out = {
+  MOD: "pover.out",
+  TYPE: "output",
+  STATUS: "empty"
+};
