@@ -1,43 +1,75 @@
-// WHIRL.js – 81 Tunnel · NC²□ Drift · iki1uc
+// WHIRL.sync – Bindungsgerät für QI/IQQ
+// Keine Änderung am WHIRL-Repo. Keine Axiome brechen.
+// quant + syn scannen, WHIRL wirbelt.
 
-import { RESPO } from "./SUS.js";
-import { SUS_scanRESPO } from "./SUS.scanRESPO";
+import { quant } from "./quant/quant.core.js";
+import { syn } from "./syn/syn.core.js";
+import { WHIRL } from "./WHIRL.js";
 
-export const WHIRL = {
-  MOD: "WHIRL",
-  TYPE: "Soft-Landing",
-  CORE: "iki1uc",
+export const WHIRL_sync = {
+
+  MOD: "WHIRL.sync",
+  TYPE: "QI/IQQ-Bindung",
+  STATUS: "green",
   VERSION: "1.0",
-  STATUS: "active",
 
-  colors: {
-    OK: "green",
-    FLOW: "yellow",
-    BREAK: "red",
-    NOK: "red",
-    ECHO: "yellow",
-    VOID: "red",
-    ROOT: "green"
+  // Rücken stärken, Hand führen
+  master() {
+    const q = quant.scan();     // physische Kraft
+    const s = syn.scan();       // narrative Kraft
+
+    return {
+      mode: "master",
+      back: WHIRL.QI || "QI",
+      hand: WHIRL.IQQ || "IQQ",
+      q,
+      s
+    };
   },
 
-  tunnel() {
-    const scan = SUS_scanRESPO(RESPO);
-    const keys = Object.keys(scan.respo);
+  slave() {
+    const q = quant.scan();
+    const s = syn.scan();
 
-    const out = [];
+    return {
+      mode: "slave",
+      back: WHIRL.QI || "QI",
+      hand: WHIRL.IQQ || "IQQ",
+      q,
+      s
+    };
+  },
 
-    for (let i = 0; i < 81; i++) {
-      const key = keys[i % keys.length];
-      out.push({
-        cell: i,
-        respo: key,
-        color: this.colors[key],
-        degree: "360°",
-        percent: "100%",
-        nc: "NC²□"
-      });
-    }
+  // Synchronisation ohne Scannen durch WHIRL
+  bind() {
+    const q = quant.scan();
+    const s = syn.scan();
 
-    return out;
+    return {
+      bind: true,
+      q,
+      s,
+      whirl: WHIRL.MOD
+    };
+  },
+
+  // Drift / Wirbel / Balance
+  flow() {
+    return {
+      drift: "active",
+      balance: "dual",
+      master: this.master(),
+      slave: this.slave()
+    };
+  },
+
+  // Stabilität: WHIRL bleibt unverändert
+  keepgreen() {
+    return {
+      repo: "unchanged",
+      axiome: "intact",
+      scan: "quant+syn only",
+      whirl: "QI/IQQ stable"
+    };
   }
 };
