@@ -1,17 +1,15 @@
-         w
-   .         :
-a       ;        d
-         s
-****
 # B‑POS — Komma‑Ebene
 
-## Marker
-- Komma: ,
+## Zeichen‑Repertoire
+- Komma **,**
 
-## Bewegung
-- 2 vor
-- 1 zurück
+## Bewegungslogik
+- 2 Zeilen vor
+- 1 Zeile zurück
 - Komma‑Shift aktiv
 
-## Tornado‑Pattern
-,
+## Tornado‑Shift (Cycle 2)
+                w
+      .                 :
+a            ;                d
+                s
