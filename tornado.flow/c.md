@@ -1,19 +1,14 @@
-                w
-      .                 :
-a            ;                d
-                s
-
 # C‑POS — Doppelpunkt / Semikolon‑Ebene
 
-## Marker
-- Doppelpunkt: :
-- Semikolon: ;
+## Zeichen‑Repertoire
+- Doppelpunkt **:**
+- Semikolon **;**
 
-## Bewegung
-- 2 vor
-- 1 zurück
-- Doppelpunkt‑Shift
-- Semikolon‑Shift
+## Bewegungslogik
+- 2 Zeilen vor
+- 1 Zeile zurück
+- Doppelpunkt‑Shift aktiv
+- Semikolon‑Shift aktiv
 
-## Tornado‑Pattern
+## Tornado‑Repertoire
 : ;
