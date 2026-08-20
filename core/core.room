@@ -1,0 +1,18 @@
+// core/core.room
+
+export const coreRoom = {
+
+    check(engine) {
+
+        const level = Number(engine.level)
+        const limit = 2.5
+        const ok = level <= limit
+
+        return {
+            ok,
+            level: level.toFixed(3),
+            limit,
+            status: ok ? "core-room-ok" : "core-room-overflow"
+        }
+    }
+}
