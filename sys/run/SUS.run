@@ -20,3 +20,32 @@ export const SUSrun = {
         }
     }
 }
+// sys/run/SUS.run (extended)
+
+import { SUSrespo } from "../SUS.respo"
+import { SUSmemory } from "../SUS.memory"
+import { SUSvector } from "../SUS.vector"
+import { runOrbitSys } from "./run.orbit"
+import { sysRoom } from "./sys.room"
+
+export const SUSrun = {
+
+    execute(engine, build) {
+
+        const respo  = SUSrespo.read(engine)
+        const memory = SUSmemory.store(build)
+        const vector = SUSvector.make(engine, build)
+
+        const orbit  = runOrbitSys.start()
+        const room   = sysRoom.check(engine, orbit)
+
+        return {
+            respo,
+            memory,
+            vector,
+            orbit,
+            room,
+            status: "sus-extended-active"
+        }
+    }
+}
