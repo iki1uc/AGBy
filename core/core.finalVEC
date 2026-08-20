@@ -1,0 +1,14 @@
+// core/core.finalVEC
+
+export const coreFinalVEC = {
+
+    pack(vector, shifted) {
+
+        return {
+            vector,
+            shifted,
+            stamp: Date.now(),
+            status: "core-finalVEC-ready"
+        }
+    }
+}
