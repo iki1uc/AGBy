@@ -1,0 +1,20 @@
+// sys/run/run.state
+
+export const runStateSys = {
+
+    make(flow, respo, room) {
+
+        let mode = "critical"
+
+        if (respo.color === "green" && room.ok && flow > 1.2) mode = "stable"
+        else if (respo.color === "yellow" && flow > 0.8) mode = "soft"
+
+        return {
+            mode,
+            flow,
+            respo: respo.color,
+            room: room.status,
+            status: "sys-state-ready"
+        }
+    }
+}
