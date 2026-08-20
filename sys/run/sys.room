@@ -1,1 +1,19 @@
+// sys/run/sys.room
+
+export const sysRoom = {
+
+    check(engine, orbit) {
+
+        const load = Number(engine.level) + Number(orbit.pulse)
+        const limit = 3.0
+        const ok = load <= limit
+
+        return {
+            ok,
+            load: load.toFixed(3),
+            limit,
+            status: ok ? "sys-room-ok" : "sys-room-overflow"
+        }
+    }
+}
 
