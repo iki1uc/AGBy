@@ -1,1 +1,43 @@
+// SUITE/run.room
+
+import { suiteEye } from "./suite.eye"
+import { suiteScale } from "./suite.scale"
+import { suiteGenerator } from "./suite.generator"
+import { suiteEngine } from "./suite.engine"
+import { targetRoom } from "./target.room"
+import { targetRom } from "./target.rom"
+
+export const runRoom = {
+
+    start() {
+
+        // 1. Beobachten
+        const eye = suiteEye.observe()
+
+        // 2. Skalieren
+        const scale = suiteScale.adjust(eye)
+
+        // 3. Generator erzeugt NC‑Impulse
+        const impulse = suiteGenerator.ignite(scale)
+
+        // 4. Engine verarbeitet Impulse
+        const engine = suiteEngine.process(impulse)
+
+        // 5. Zielraum prüfen
+        const roomState = targetRoom.check(engine)
+
+        // 6. Speicher prüfen
+        const romState = targetRom.check(engine)
+
+        // 7. Ergebnis zurückgeben
+        return {
+            eye,
+            scale,
+            impulse,
+            engine,
+            roomState,
+            romState
+        }
+    }
+}
 
