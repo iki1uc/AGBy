@@ -1,0 +1,14 @@
+// core/core.link
+
+export const coreLink = {
+
+    connect(eye, scale, engine) {
+
+        return {
+            eye,
+            scale,
+            engine,
+            status: "core-link-ready"
+        }
+    }
+}
