@@ -1,6 +1,29 @@
-const impulse = {
-    height: respo.height(),
-    width:  respo.width(),
-    depth:  respo.depth()
-}
+// SUITE/suite.generator
 
+export const suiteGenerator = {
+
+    ignite(scale) {
+
+        // NC‑Impuls entsteht aus Flow, Tiefe, Energie
+        const impulse = {
+            height: this.toHeight(scale.flow),
+            width:  this.toWidth(scale.depth),
+            depth:  this.toDepth(scale.energy),
+            respo:  scale.respo
+        }
+
+        return impulse
+    },
+
+    toHeight(flow) {
+        return (flow * 1.2).toFixed(2)
+    },
+
+    toWidth(depth) {
+        return (depth * 0.9).toFixed(2)
+    },
+
+    toDepth(energy) {
+        return (energy * 1.1).toFixed(2)
+    }
+}
