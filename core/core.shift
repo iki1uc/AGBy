@@ -1,0 +1,18 @@
+// core/core.shift
+
+export const coreShift = {
+
+    shift(engine) {
+
+        const factor =
+            engine.mode === "stable"   ? 1.15 :
+            engine.mode === "soft"     ? 1.05 :
+                                         0.90
+
+        return {
+            level: (engine.level * factor).toFixed(3),
+            mode: engine.mode,
+            status: "core-shift-ready"
+        }
+    }
+}
