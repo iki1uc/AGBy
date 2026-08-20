@@ -1,0 +1,14 @@
+// sys/repair/repair.suite
+
+export const repairSuite = {
+
+    fix(suiteState) {
+
+        if (suiteState.status === "critical") {
+            suiteState.status = "soft"
+            suiteState.level = (suiteState.level * 0.8).toFixed(2)
+        }
+
+        return suiteState
+    }
+}
