@@ -1,0 +1,15 @@
+// sys/repair/repair.room
+
+export const repairRoom = {
+
+    fix(roomState) {
+
+        if (!roomState.ok) {
+            roomState.level = roomState.limit
+            roomState.ok = true
+            roomState.status = "room-repaired"
+        }
+
+        return roomState
+    }
+}
