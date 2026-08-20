@@ -1,7 +1,19 @@
-export const SUS_shiftVEC = function(state) {
-  return {
-    mode: "neutral",
-    vector: state,
-    bind: false
-  };
-};
+// SUS.shiftVEC
+
+export const SUSshiftVEC = {
+
+    shift(vector, respo) {
+
+        const factor =
+            respo.color === "green"  ? 1.15 :
+            respo.color === "yellow" ? 1.05 :
+            0.95
+
+        return {
+            hx: (vector.hx * factor).toFixed(3),
+            by: (vector.by * factor).toFixed(3),
+            tz: (vector.tz * factor).toFixed(3),
+            status: "shifted"
+        }
+    }
+}
