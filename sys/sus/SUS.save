@@ -1,7 +1,18 @@
-export const SUS_save = function(memory) {
-  return {
-    mode: "neutral",
-    saved: memory,
-    bind: false
-  };
-};
+// SUS.save
+
+export const SUSsave = {
+
+    write(scan, shifted) {
+
+        const slot = {
+            scan: scan.code,
+            vector: shifted,
+            time: Date.now()
+        }
+
+        return {
+            slot,
+            status: "saved"
+        }
+    }
+}
