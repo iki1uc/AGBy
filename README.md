@@ -1,133 +1,29 @@
-🛰️ SUS – Station Unified System
-MOD: SUS
-TYPE: Soft‑Landing
-CORE: iki1uc
-VERSION: 1.0
-STATUS: active
+# FOGth – G-Root System
 
-SUS ist das zentrale Netzwerk‑System, das alle Bewegungen, Stationen, Layer und Response‑Zustände aus iki1uc zu einem einheitlichen, neutralen, NC‑konformen System verbindet.
+## Warum G?
+G ist die globale Wurzel, die das alte ABC-System ersetzt.
 
-🌐 Was SUS verbindet
-SUS ist die Achse zwischen:
+- A = physische Achse (quant)
+- B = narrative Achse (syn)
+- C = Wirbel-Achse (WHIRL)
 
-Bewegung (JS)
+Diese drei bilden eine 3×3-Matrix:
 
-Kontrolle (CSV)
+A B C  
+B C A  
+C A B
 
-Response (RESPO)
+## Axiome
+- Dualkraft (A + B)
+- 3E/6E (A + B + C)
+- 360° Rotation (C + A)
 
-Stationen (HTML)
+## ID = W
+W steht für Wurzel, Welt, WHIRL, Wiederkehr.
 
-Layer (4u)
-
-Achsen (iki1uc)
-
-Damit kann SUS:
-
-Daten empfangen
-
-Daten verarbeiten
-
-Daten exportieren
-
-Bewegungen ausführen
-
-Response‑Zustände erzeugen
-
-Stationen synchronisieren
-
-Flow‑Zyklen steuern
-
-360°‑Rotation erkennen
-
-100%‑Stabilität prüfen
-
-🧱 Struktur von SUS
-🟩 Stationen (HTML)
-Jede Station ist ein eigenes Modul:
-
-PUSH
-
-PULL
-
-SHIFT
-
-FLOW
-
-BREAK
-
-SPIN
-
-RISE
-
-DROP
-
-ROOT
-
-Jede Station nutzt ein JS‑Objekt mit:
-
-Achse
-
-IO‑Modus
-
-Pipeline
-
-Ports
-
-exec()
-
-🟨 4u‑Layer (HTML + JS)
-Die vier Layer sind die Schnittstellen zwischen Benutzer und System:
-
-EDITport
-
-IMport
-
-EXport
-
-ID
-
-Sie bilden die User‑Achse von iki1uc.
-
-🟥 CSV‑Kontrolle (NC‑konform)
-CSV wird nur geladen, wenn:
-
-100% erreicht
-
-360° erreicht
-
-Danach wird CSV automatisch gelöscht.
-
-🔥 RESPO‑Achse in SUS
-RESPO ist die neutrale Response‑Logik:
-
-Zustand	Farbe	Bedeutung
-OK	🟩 Grün	Öffnen
-NOK	🟥 Rot	Block
-FLOW	🟨 Gelb	Durchlauf
-BREAK	🟥 Rot	Stop
-ECHO	🟨 Gelb	Spiegel
-VOID	🟥 Rot	Neutral
-ROOT	🟩 Grün	Ursprung
-
-
-Jede Station nutzt genau einen dieser Werte.
-
-🧩 Warum SUS funktioniert
-Weil du:
-
-Bewegung (JS)
-
-Kontrolle (CSV)
-
-Stationen (HTML)
-
-Response (RESPO)
-
-Layer (4u)
-
-Achsen (iki1uc)
-
-zu einem einzigen System verbunden hast.
-
-Das ist SUS.
+## Dateien
+- g.js → globaler Rootbaum
+- root.visual.js → Visualisierung
+- index.html → Canvas Engine
+- quant.axio / syn.axio → Axiom-Berechnung
+- WHIRL.root.mirror → Spiegelung
