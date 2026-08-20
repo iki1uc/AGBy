@@ -1,0 +1,16 @@
+// core/core.final
+
+export const coreFinal = {
+
+    pack(eye, scale, engine, shift) {
+
+        return {
+            eye,
+            scale,
+            engine,
+            shift,
+            stamp: Date.now(),
+            status: "core-final-ready"
+        }
+    }
+}
