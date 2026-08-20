@@ -1,41 +1,20 @@
-// ID.js – Neutral Core · iki1uc
+// g.js – globaler Root-Baum
 
-import { SUS } from "./SUS.js";
-import { RESPO } from "./SUS.js";
+import { ID } from "../ID.js";
 
-export const ID = {
-  MOD: "ID",
-  TYPE: "Soft-Landing",
-  CORE: "iki1uc",
+export const G = {
+
+  MOD: "G.root",
+  TYPE: "global-root",
   VERSION: "1.0",
-  STATUS: "active",
 
-  glyphs: {
-    OK: "𐄷",
-    NOK: "𐄹",
-    FLOW: "𐄺",
-    BREAK: "𐄼",
-    ECHO: "𐄽",
-    VOID: "𐄾",
-    ROOT: "𐄿"
-  },
+  build() {
+    const identity = ID.identity();
 
-  identity() {
     return {
-      mode: SUS.mode || "neutral",
-      can: SUS.can || [],
-      cannot: SUS.cannot || [],
-      degree: "360°",
-      percent: "100%",
-      nc: "NC²□"
+      ID: "W",
+      identity,
+      status: "g-root-ready"
     };
-  },
-
-  respoGlyphs() {
-    const out = {};
-    for (const key in RESPO) {
-      out[key] = this.glyphs[key];
-    }
-    return out;
   }
 };
