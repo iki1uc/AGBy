@@ -1,1 +1,9 @@
+// EYE.raw – neutraler RAW-Viewer
+
+export const EYEraw = {
+  MOD: "EYE.raw",
+  TYPE: "neutral-raw",
+  VERSION: "1.0",
+  STATUS: "empty"
+};
 
