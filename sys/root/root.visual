@@ -1,0 +1,36 @@
+// root.visual – Gegenstück-Root-Visualisierung
+
+import { quant_root } from "./quant.root.js";
+import { syn_root } from "./syn.root.js";
+import { WHIRL_root_mirror } from "./WHIRL.root.mirror.js";
+import { quant_axio } from "./quant.axio.js";
+import { syn_axio } from "./syn.axio.js";
+
+export const rootVisual = {
+
+  MOD: "root.visual",
+  TYPE: "visualizer",
+  VERSION: "1.0",
+
+  visualize() {
+    const whirl = WHIRL_root_mirror.mirror();
+    const qRoot = quant_root.load(whirl);
+    const sRoot = syn_root.load(whirl);
+
+    const qAx = quant_axio.compute(qRoot);
+    const sAx = syn_axio.compute(sRoot);
+
+    return {
+      whirl,
+      qRoot,
+      sRoot,
+      qAx,
+      sAx,
+      e6: {
+        phys: qAx.axiom2,
+        narr: sAx.axiom2
+      },
+      status: "visual-ready"
+    };
+  }
+};
