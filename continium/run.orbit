@@ -1,1 +1,31 @@
+// continium/run.orbit
+
+export const runOrbit = {
+
+    start() {
+
+        const angle = this.angle()
+        const depth = this.depth()
+        const shift = this.shift(angle, depth)
+
+        return {
+            angle,
+            depth,
+            shift,
+            status: "orbit-active"
+        }
+    },
+
+    angle() {
+        return (Math.random() * 360).toFixed(1)
+    },
+
+    depth() {
+        return (Math.random() * 0.7).toFixed(2)
+    },
+
+    shift(angle, depth) {
+        return ((angle / 360) * depth).toFixed(3)
+    }
+}
 
