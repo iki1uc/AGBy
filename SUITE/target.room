@@ -1,1 +1,19 @@
+// SUITE/target.room
+
+export const targetRoom = {
+
+    check(engine) {
+
+        // Raumgrenze: 80 m² → Engine‑Level muss < 2.4 sein
+        const limit = 2.4
+        const ok = Number(engine.level) <= limit
+
+        return {
+            ok,
+            limit,
+            level: engine.level,
+            status: ok ? "room‑ok" : "room‑overflow"
+        }
+    }
+}
 
