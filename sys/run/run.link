@@ -1,0 +1,16 @@
+// sys/run/run.link
+
+export const runLinkSys = {
+
+    connect(vector, shift, engine, orbit, build) {
+
+        return {
+            vector,
+            shift,
+            engine,
+            orbit,
+            build,
+            status: "sys-link-ready"
+        }
+    }
+}
