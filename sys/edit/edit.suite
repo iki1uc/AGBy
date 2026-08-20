@@ -1,1 +1,14 @@
+// sys/edit/edit.suite
+
+export const editSuite = {
+
+    set(key, value, suite) {
+        suite[key] = value
+        return {
+            key,
+            value,
+            status: "suite-edited"
+        }
+    }
+}
 
