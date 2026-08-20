@@ -1,0 +1,19 @@
+// sys/run/run.final
+
+export const runFinalSys = {
+
+    pack(engine, build, orbit, vector, shift, flow, state) {
+
+        return {
+            engine,
+            build,
+            orbit,
+            vector,
+            shift,
+            flow,
+            state,
+            stamp: Date.now(),
+            status: "sys-final-ready"
+        }
+    }
+}
