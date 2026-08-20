@@ -1,6 +1,18 @@
-// SUS.memory – neutraler Speicherblock
-export const SUS_memory = {
-  respo: null,
-  vector: null,
-  last: null
-};
+// SUS.memory
+
+export const SUSmemory = {
+
+    store(build) {
+
+        const slot = {
+            orbit: build.orbit,
+            vector: build.vector,
+            depth: build.orbit.depth
+        }
+
+        return {
+            slot,
+            status: "memory-stored"
+        }
+    }
+}
