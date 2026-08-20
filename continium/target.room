@@ -1,1 +1,18 @@
+// continium/target.room
+
+export const targetRoomContinium = {
+
+    check(build) {
+
+        const limit = 1.0
+        const ok = Number(build.vector.z) <= limit
+
+        return {
+            ok,
+            limit,
+            z: build.vector.z,
+            status: ok ? "continium-ok" : "continium-overflow"
+        }
+    }
+}
 
