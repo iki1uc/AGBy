@@ -1,7 +1,14 @@
-export const SUS_load = function(input) {
-  return {
-    mode: "neutral",
-    loaded: input,
-    bind: false
-  };
-};
+// SUS.load
+
+export const SUSload = {
+
+    read(slot) {
+
+        return {
+            scan: slot.scan,
+            vector: slot.vector,
+            time: slot.time,
+            status: "loaded"
+        }
+    }
+}
