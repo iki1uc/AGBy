@@ -1,0 +1,18 @@
+// sys/run/run.flow
+
+export const runFlowSys = {
+
+    make(engine, orbit, shift) {
+
+        const flow = (
+            Number(engine.level) * 0.6 +
+            Number(orbit.pulse) * 0.3 +
+            Number(shift.z) * 0.1
+        ).toFixed(3)
+
+        return {
+            flow,
+            status: "sys-flow-ready"
+        }
+    }
+}
