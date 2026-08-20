@@ -1,1 +1,43 @@
+// sys/run/run.room
+
+import { SUSrun } from "./SUS.run"
+import { locate } from "./locate"
+import { saveRoom } from "../save/save.room"
+import { saveSuite } from "../save/save.suite"
+
+export const runRoomSys = {
+
+    execute(engine, build) {
+
+        const sus = SUSrun.execute(engine, build)
+
+        const pos = locate.position(sus.vector.vector)
+        const ord = locate.order(sus.respo.color)
+        const dep = locate.depth(build)
+
+        const roomSave = saveRoom.write({
+            ok: true,
+            level: engine.level,
+            limit: 2.4,
+            status: "sys-room"
+        })
+
+        const suiteSave = saveSuite.write({
+            engine,
+            impulse: engine.impulse,
+            build,
+            vector: sus.vector.vector
+        })
+
+        return {
+            sus,
+            pos,
+            ord,
+            dep,
+            roomSave,
+            suiteSave,
+            status: "sys-run-complete"
+        }
+    }
+}
 
