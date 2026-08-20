@@ -1,1 +1,20 @@
+// SUITE/target.rom
+
+export const targetRom = {
+
+    check(engine) {
+
+        // Speicherwert aus Engine‑Level abgeleitet
+        const value = Number(engine.level).toFixed(2)
+
+        // 1‑Byte Grenze: 0.00–2.55
+        const ok = value <= 2.55
+
+        return {
+            ok,
+            value,
+            status: ok ? "rom‑ok" : "rom‑overflow"
+        }
+    }
+}
 
