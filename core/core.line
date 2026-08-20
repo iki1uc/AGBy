@@ -1,0 +1,14 @@
+// core/core.line
+
+export const coreLine = {
+
+    make(vector) {
+
+        return {
+            start: 0,
+            end: Number(vector.hx).toFixed(3),
+            slope: (vector.by / vector.tz).toFixed(3),
+            status: "core-line-ready"
+        }
+    }
+}
