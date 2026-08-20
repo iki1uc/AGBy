@@ -1,1 +1,22 @@
+// sys/run/SUS.run
 
+import { SUSrespo } from "../SUS.respo"
+import { SUSmemory } from "../SUS.memory"
+import { SUSvector } from "../SUS.vector"
+
+export const SUSrun = {
+
+    execute(engine, build) {
+
+        const respo  = SUSrespo.read(engine)
+        const memory = SUSmemory.store(build)
+        const vector = SUSvector.make(engine, build)
+
+        return {
+            respo,
+            memory,
+            vector,
+            status: "sus-active"
+        }
+    }
+}
