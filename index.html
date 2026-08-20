@@ -2,116 +2,81 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>FOGth – G Root Canvas Engine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC FLY · FOGth · 3×3 · Time Engine</title>
 
 <style>
   body {
     background: #000;
     margin: 0;
     overflow: hidden;
-    font-family: monospace;
+    font-family: 'Courier New', monospace;
   }
-
   #fogth {
     width: 100vw;
     height: 100vh;
     display: block;
   }
-
   #info {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #0f0;
     font-size: 14px;
-    background: rgba(0,0,0,0.4);
-    padding: 6px 10px;
-    border-radius: 4px;
+    background: rgba(0,0,0,0.6);
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1px solid #0f0;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    box-shadow: 0 0 20px rgba(0,255,0,0.1);
   }
+  #info .mc { color: #ffaa00; font-weight: bold; }
+  #info .fly { color: #00ccff; font-weight: bold; }
 </style>
 </head>
 
 <body>
 
 <canvas id="fogth"></canvas>
-<div id="info">FOGth Canvas Engine · G.root aktiv · ID = W</div>
 
-<!-- Root-System laden -->
+<div id="info">
+  <span class="mc">⚡ MC FLY</span> ·
+  <span class="fly">FOGth</span> ·
+  3×3 · G.root · ID = W · <span style="color:#0f0;">✦ TIME ENGINE</span>
+</div>
+
 <script src="sys/root/g.js"></script>
-<script src="sys/root/root.visual.js"></script>
+<script src="sys/root/mcfly.engine.js"></script>
 
 <script>
-/* Canvas vorbereiten */
-const canvas = document.getElementById("fogth");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById('fogth');
+const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-/* G-Root laden */
-const GROOT = G.build();
+let time = 0;
+let speed = 0.03;
 
-/* Visual Root laden */
-const VIS = rootVisual.visualize();
-
-/* Tornado-Parameter */
-let angle = 0;
-let speed = 0.02;
-
-/* Zeichnen */
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const cx = canvas.width / 2;
-  const cy = canvas.height / 2;
+  // MC FLY Engine rendern
+  MCFLY.render(ctx, canvas, time);
 
-  /* Hintergrund */
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  /* 3×3 Matrix aus G.root */
-  const matrix = GROOT.matrix;
-  const radius = 120;
-
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-
-      const cell = matrix[i][j];
-      const label = Object.keys(cell)[0]; // A, B oder C
-
-      const x = cx + Math.cos(angle + (i + j)) * radius * (i + 1);
-      const y = cy + Math.sin(angle + (i + j)) * radius * (j + 1);
-
-      ctx.beginPath();
-      ctx.arc(x, y, 22, 0, Math.PI * 2);
-      ctx.strokeStyle = "#0f0";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      ctx.fillStyle = "#0f0";
-      ctx.fillText(label, x - 5, y + 5);
-    }
-  }
-
-  /* Tornado-Spirale */
-  ctx.beginPath();
-  ctx.strokeStyle = "#0f0";
-  ctx.lineWidth = 1;
-
-  for (let t = 0; t < 200; t++) {
-    const tx = cx + Math.cos(angle + t * 0.1) * (t * 1.5);
-    const ty = cy + Math.sin(angle + t * 0.1) * (t * 1.5);
-    ctx.lineTo(tx, ty);
-  }
-
-  ctx.stroke();
-
-  angle += speed;
-
+  time += speed;
   requestAnimationFrame(draw);
 }
 
 draw();
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
