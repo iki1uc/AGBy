@@ -1,0 +1,18 @@
+// core/core.scale
+
+export const coreScale = {
+
+    adjust(eye) {
+
+        const pulse = (eye.pulse * 0.9 + 0.1).toFixed(3)
+        const depth = (eye.depth * 2.0).toFixed(3)
+        const load  = (eye.load  * 0.7).toFixed(3)
+
+        return {
+            pulse,
+            depth,
+            load,
+            status: "core-scale-ready"
+        }
+    }
+}
