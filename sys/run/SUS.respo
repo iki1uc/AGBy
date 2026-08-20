@@ -1,0 +1,19 @@
+// SUS.respo
+
+export const SUSrespo = {
+
+    read(engine) {
+
+        const level = Number(engine.level)
+
+        let color = "red"
+        if (level > 1.2) color = "yellow"
+        if (level > 1.8) color = "green"
+
+        return {
+            color,
+            level,
+            status: "respo-ready"
+        }
+    }
+}
