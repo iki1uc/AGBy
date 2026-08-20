@@ -1,0 +1,19 @@
+// core/core.respo
+
+export const coreRespo = {
+
+    read(engine) {
+
+        const level = Number(engine.level)
+
+        let color = "red"
+        if (level > 1.0) color = "yellow"
+        if (level > 1.8) color = "green"
+
+        return {
+            color,
+            level: level.toFixed(3),
+            status: "core-respo-ready"
+        }
+    }
+}
