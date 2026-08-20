@@ -1,1 +1,21 @@
+// sys/save/save.suite
+
+export const saveSuite = {
+
+    write(suiteState) {
+
+        const slot = {
+            engine: suiteState.engine,
+            impulse: suiteState.impulse,
+            build: suiteState.build,
+            vector: suiteState.vector,
+            time: Date.now()
+        }
+
+        return {
+            slot,
+            status: "suite-saved"
+        }
+    }
+}
 
