@@ -1,0 +1,19 @@
+// core/core.shiftVEC
+
+export const coreShiftVEC = {
+
+    shift(vector, engine) {
+
+        const factor =
+            engine.mode === "stable"   ? 1.20 :
+            engine.mode === "soft"     ? 1.05 :
+                                         0.90
+
+        return {
+            hx: (vector.hx * factor).toFixed(3),
+            by: (vector.by * factor).toFixed(3),
+            tz: (vector.tz * factor).toFixed(3),
+            status: "core-shiftVEC-ready"
+        }
+    }
+}
