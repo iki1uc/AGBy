@@ -1,1 +1,21 @@
+// sys/save/save.room
+
+export const saveRoom = {
+
+    write(roomState) {
+
+        const slot = {
+            ok: roomState.ok,
+            level: roomState.level,
+            limit: roomState.limit,
+            status: roomState.status,
+            time: Date.now()
+        }
+
+        return {
+            slot,
+            status: "room-saved"
+        }
+    }
+}
 
