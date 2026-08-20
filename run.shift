@@ -1,0 +1,19 @@
+// sys/run/run.shift
+
+export const runShiftSys = {
+
+    shift(vector, respo) {
+
+        const factor =
+            respo.color === "green"  ? 1.20 :
+            respo.color === "yellow" ? 1.05 :
+            0.90
+
+        return {
+            x: (vector.x * factor).toFixed(3),
+            y: (vector.y * factor).toFixed(3),
+            z: (vector.z * factor).toFixed(3),
+            status: "sys-shift-ready"
+        }
+    }
+}
