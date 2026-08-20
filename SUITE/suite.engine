@@ -1,1 +1,29 @@
-suite.engine.process(response)
+// SUITE/suite.engine
+
+export const suiteEngine = {
+
+    process(impulse) {
+
+        // Engine‑Level entsteht aus Höhe, Breite, Tiefe
+        const level = (
+            Number(impulse.height) +
+            Number(impulse.width) +
+            Number(impulse.depth)
+        ).toFixed(2)
+
+        // Engine‑Status abhängig von Respo
+        const status = this.statusFromRespo(impulse.respo)
+
+        return {
+            level,
+            status,
+            impulse
+        }
+    },
+
+    statusFromRespo(respo) {
+        if (respo === "green") return "stable"
+        if (respo === "yellow") return "soft"
+        return "critical"
+    }
+}
