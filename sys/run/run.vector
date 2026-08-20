@@ -1,0 +1,14 @@
+// sys/run/run.vector
+
+export const runVectorSys = {
+
+    make(engine, orbit, build) {
+
+        return {
+            x: (engine.level * orbit.pulse).toFixed(3),
+            y: (build.vector.y * orbit.angle / 360).toFixed(3),
+            z: (build.vector.z * 1.2).toFixed(3),
+            status: "sys-vector-ready"
+        }
+    }
+}
