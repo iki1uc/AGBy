@@ -1,0 +1,24 @@
+// core/core.engine
+
+export const coreEngine = {
+
+    process(scale) {
+
+        const level = (
+            Number(scale.pulse) +
+            Number(scale.depth) +
+            Number(scale.load)
+        ).toFixed(3)
+
+        const mode =
+            level > 2.0 ? "stable" :
+            level > 1.0 ? "soft"   :
+                          "critical"
+
+        return {
+            level,
+            mode,
+            status: "core-engine-ready"
+        }
+    }
+}
