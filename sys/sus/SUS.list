@@ -1,7 +1,19 @@
-export const SUS_list = function(memory) {
-  return {
-    mode: "neutral",
-    list: memory,
-    bind: false
-  };
-};
+// SUS.list
+
+export const SUSlist = {
+
+    make(link) {
+
+        return {
+            items: [
+                link.respo,
+                link.memory,
+                link.vector,
+                link.scan,
+                link.shifted
+            ],
+            count: 5,
+            status: "list-ready"
+        }
+    }
+}
