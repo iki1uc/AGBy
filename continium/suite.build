@@ -1,1 +1,24 @@
+// continium/suite.build
+
+import { runOrbit } from "./run.orbit"
+
+export const suiteBuild = {
+
+    build(engine) {
+
+        const orbit = runOrbit.start()
+
+        const vector = {
+            x: (engine.level * orbit.depth).toFixed(3),
+            y: (orbit.angle / 360).toFixed(3),
+            z: orbit.shift
+        }
+
+        return {
+            orbit,
+            vector,
+            status: "build-complete"
+        }
+    }
+}
 
