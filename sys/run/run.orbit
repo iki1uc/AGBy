@@ -1,1 +1,31 @@
+// sys/run/run.orbit
+
+export const runOrbitSys = {
+
+    start() {
+
+        const angle = this.angle()
+        const pulse = this.pulse()
+        const drift = this.drift(angle, pulse)
+
+        return {
+            angle,
+            pulse,
+            drift,
+            status: "sys-orbit-active"
+        }
+    },
+
+    angle() {
+        return (Math.random() * 360).toFixed(2)
+    },
+
+    pulse() {
+        return (Math.random() * 1.0).toFixed(3)
+    },
+
+    drift(angle, pulse) {
+        return ((angle / 360) * pulse).toFixed(4)
+    }
+}
 
